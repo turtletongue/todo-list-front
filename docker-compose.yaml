@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  node:
+    build: ./
+    container_name: todo-list-front
+    restart: always
+    tty: true
+    networks:
+      - todo_list
+
+networks:
+  todo_list:
+    external: true
