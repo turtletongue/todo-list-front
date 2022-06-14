@@ -1,4 +1,4 @@
-export const API_URL = 'http://localhost:3050/';
+export const API_URL = 'http://89.108.71.38/api/';
 
 export const api = {
   tasks: API_URL + 'tasks',
