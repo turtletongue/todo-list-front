@@ -1,58 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { Box } from '@chakra-ui/react';
 
-function App() {
+import Navbar from './components/navbar/navbar.component';
+import TasksPage from './pages/tasks/tasks.page';
+import AddTaskPage from './pages/add-task/add-task.page';
+import SignInPage from './pages/sign-in/sign-in.page';
+import {
+  ADD_TASK_PAGE_URL,
+  EDIT_TASK_PAGE_URL,
+  MAIN_PAGE_URL,
+  SIGN_IN_PAGE_URL,
+} from './contants';
+import EditTaskPage from './pages/edit-task/edit-task.page';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <Box width="full" height="full">
+      <Navbar />
+      <Routes>
+        <Route path={MAIN_PAGE_URL} element={<TasksPage />} />
+        <Route path={ADD_TASK_PAGE_URL} element={<AddTaskPage />} />
+        <Route path={EDIT_TASK_PAGE_URL} element={<EditTaskPage />} />
+        <Route path={SIGN_IN_PAGE_URL} element={<SignInPage />} />
+      </Routes>
+    </Box>
   );
-}
+};
 
 export default App;
